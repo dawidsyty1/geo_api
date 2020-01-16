@@ -24,6 +24,10 @@ logging.basicConfig(
     format='%(asctime)s %(levelname)s %(message)s',
 )
 
+file_handler = logging.FileHandler('log/django.logs')
+file_handler.setLevel(logging.DEBUG)
+logger.addHandler(file_handler)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -84,7 +88,16 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get("DATABASE_NAME", None),
+        'USER': os.environ.get("DATABASE_USER", None),
+        'PASSWORD': os.environ.get("DATABASE_PASSWORD", None),
+        'HOST': os.environ.get("DATABASE_HOST", None),
+        'PORT': os.environ.get("DATABASE_PORT", None),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -134,3 +147,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+IPSTACK_PRIVATE_KEY = 'c03c08df2477dd4addaa6f648bc9204d'
+
+REDIS_HOST = os.environ.get('REDIS_HOST', '127.0.0.1')
+REDIS_PORT = '6379'
+
+ASYNCHRONOUS_ON = False
+
+BROKER_URL = 'redis://{}:{}'.format(REDIS_HOST, REDIS_PORT)
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_RESULT_BACKEND = '{}/1'.format(BROKER_URL)
+CELERY_IGNORE_RESULT = True
+CELERY_STORE_ERRORS_EVEN_IF_IGNORED = True
+CELERY_IMPORTS = ('geolocation.tasks',)

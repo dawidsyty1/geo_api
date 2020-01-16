@@ -1,0 +1,62 @@
+[
+  {
+    "model": "geolocation.geolocationdata",
+    "pk": 1,
+    "fields": {
+      "id": 1,
+      "ip": "2607:f8b0:4005:805::2004",
+      "url": "www.google.com",
+      "type": "ipv6",
+      "continent_code": "NA",
+      "continent_name": "North America",
+      "country_code": "US",
+      "country_name": "United States",
+      "region_code": "CA",
+      "region_name": "California",
+      "city": "Mountain View",
+      "zip": "94043",
+      "latitude": 37.38801956176758,
+      "longitude": -122.07431030273438
+    }
+  },
+  {
+    "model": "geolocation.geolocationdata",
+    "pk": 2,
+    "fields": {
+      "id": 2,
+      "ip": "2a03:2880:f131:83:face:b00c:0:25de",
+      "url": "www.facebook.com",
+      "type": "ipv6",
+      "continent_code": "EU",
+      "continent_name": "Europe",
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_code": "L",
+      "region_name": "Leinster",
+      "city": "Dublin",
+      "zip": "",
+      "latitude": 53.35388946533203,
+      "longitude": -6.243333339691162
+    }
+  },
+  {
+    "model": "geolocation.geolocationdata",
+    "pk": 3,
+    "fields": {
+      "id": 3,
+      "ip": "2a03:2880:f111:83:face:b00c:0:25de",
+      "url": "www.facebook.com",
+      "type": "ipv6",
+      "continent_code": "EU",
+      "continent_name": "Europe",
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "region_code": "L",
+      "region_name": "Leinster",
+      "city": "Dublin",
+      "zip": "",
+      "latitude": 53.35388946533203,
+      "longitude": -6.243333339691162
+    }
+  }
+]
